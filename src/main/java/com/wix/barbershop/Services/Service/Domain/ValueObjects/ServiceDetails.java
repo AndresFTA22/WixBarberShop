@@ -1,9 +1,9 @@
-package com.wix.barbershop.Users.Address.Domain.ValueObjects;
+package com.wix.barbershop.Services.Service.Domain.ValueObjects;
 
 import com.wix.barbershop.Shared.Domain.Aggregate.StringValueObject;
 
-public class AddressDetail extends StringValueObject {
-    public AddressDetail(String value) {
+public class ServiceDetails extends StringValueObject {
+    public ServiceDetails(String value) {
         validate(value);
         this.value = value;
     }
