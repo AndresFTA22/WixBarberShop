@@ -1,0 +1,416 @@
+Users endpoints-----------------------------------------------------------------------------------------
+ - GET /users
+	- Descripción: Obtener todos los usuarios
+	- Responses:
+		- 200: Obtiene la lista de todos los usuarios
+			Users: [
+					 {
+						name: string,
+						phone: string,
+						type: string,
+						password: string,
+					 },
+				  ]
+		- 401: Unauthorized
+		- 500: Internal Server Error
+		
+- GET /users/Customers
+	- Descripción: Obtener todos los clientes
+	- Responses:
+		- 200: Obtiene la lista de todos los clientes
+			Customers: [
+							{
+								name: string,
+								phone: string,
+								type: string,
+								password: string,
+							},
+				  		]
+		- 401: Unauthorized
+		- 500: Internal Server Error
+		
+- GET /users/Barbers
+	- Descripción: Obtener todos los barberos
+	- Responses:
+		- 200: Obtiene la lista de todos los barberos
+			Barbers: [
+						{
+							name: string,
+							phone: string,
+							type: string,
+							password: string,
+						},
+				  	]
+		- 401: Unauthorized
+		- 500: Internal Server Error
+
+- POST /users/Login
+	- Descripción: Iniciar sesión de un usuario
+	- Responses:
+		- 200: Login exitoso
+		- 400: Bad request
+		- 500: Internal Server Error
+	- Body:
+		{
+			phone: string,
+			password: string
+		}
+		
+- POST /users/Customers
+	- Descripción: Crear un nuevo cliente
+	- Responses:
+		- 201: cliente creado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Body
+		{
+			name: string,
+			phone: string,
+			type: string,
+			address: string,
+			password: string
+		}
+		
+- POST /users/Barbers
+	- Descripción: Crear un nuevo barbero
+	- Responses:
+		- 201: barbero creado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Body
+		{
+			name: string,
+			phone: string,
+			type: string,
+			password: string,
+			orders: array
+		}
+		
+- POST /users/admin-Barbershops
+	- Descripción: Crear un nuevo administrador
+	- Responses:
+		- 201: Administrador creado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Body
+		{
+			name: string,
+			password: string,
+		}
+	
+- PUT /users/Customers/{customerId}
+	- Descripción: Editar un cliente
+	- Responses:
+		- 200: cliente actualizado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id del cliente
+	- Body
+		{
+			name: string,
+			phone: string,
+			type: string,
+			address: string,
+			password: string
+		}
+		
+- PUT /users/Barbers/{BarbersId}
+	- Descripción: Editar un barbero
+	- Responses:
+		- 200: barbero actualizado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id del barbero
+	- Body
+		{
+			name: string,
+			phone: string,
+			type: string,
+			password: string,
+			orders: array
+		}
+	
+- DELETE /users/Customers/{customerId}
+	- Descripción: Eliminar un cliente
+	- Responses:
+		- 204: cliente eliminado 
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id del cliente
+		
+- DELETE /users/Barbers/{BarbersId}
+	- Descripción: Eliminar un barbero
+	- Responses:
+		- 204: barbero eliminado 
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id del barbero
+
+Service endpoints ----------------------------------------------------------------------------------------
+
+- POST /users/Customers
+	- Descripción: Crear un nuevo cliente
+	- Responses:
+		- 201: cliente creado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Body
+		{
+			name: string,
+			phone: string,
+			type: string,
+			address: string,
+			password: string
+		}
+		
+- POST /users/Barbers
+	- Descripción: Crear un nuevo barbero
+	- Responses:
+		- 201: barbero creado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Body
+		{
+			name: string,
+			phone: string,
+			type: string,
+			password: string,
+			orders: array
+		}
+		
+- POST /users/admin-Barbershops
+	- Descripción: Crear un nuevo administrador
+	- Responses:
+		- 201: Administrador creado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Body
+		{
+			name: string,
+			password: string,
+		}
+		
+- PUT /users/Customers/{customerId}
+	- Descripción: Editar un cliente
+	- Responses:
+		- 200: cliente actualizado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id del cliente
+	- Body
+		{
+			name: string,
+			phone: string,
+			type: string,
+			address: string,
+			password: string
+		}
+		
+- PUT /users/Barbers/{BarbersId}
+	- Descripción: Editar un barbero
+	- Responses:
+		- 200: barbero actualizado
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id del barbero
+	- Body
+		{
+			name: string,
+			phone: string,
+			type: string,
+			password: string,
+			orders: array
+		}
+	
+- DELETE /users/Customers/{customerId}
+	- Descripción: Eliminar un cliente
+	- Responses:
+		- 204: cliente eliminado 
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id del cliente
+		
+- DELETE /users/Barbers/{BarbersId}
+	- Descripción: Eliminar un barbero
+	- Responses:
+		- 204: barbero eliminado 
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id del barbero
+
+- GET Services/Date/{DateId}
+	- Descripción: Consultar una cita
+	- Responses:
+		- 200: Obtiene la cita
+		Date:
+			{
+				customerId: string,
+				barbersId: string,
+				typeService: String,
+				ServiceId: string
+			},
+		- 401: Unauthorized
+		- 500: Internal Server Error
+		- Params:
+		- id: Id de la cita
+		
+- DELETE Services/Date/{DateId}
+	- Descripción: Eliminar una cita
+	- Responses:
+		- 204: cita eliminada
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id del cita
+
+Admin endpoints------------------------------------------------------------------------------
+
+ - GET /users
+	- Descripción: Obtener todos los usuarios
+	- Responses:
+		- 200: Obtiene la lista de todos los usuarios
+			Users: [
+					 {
+						name: string,
+						phone: string,
+						type: string,
+						password: string,
+					 },
+				  ]
+		- 401: Unauthorized
+		- 500: Internal Server Error
+		
+- GET /users/Customer
+	- Descripción: Obtener todos los clientes
+	- Responses:
+		- 200: Obtiene la lista de todos los clientes
+			Customers: [
+					 {
+						name: string,
+						phone: string,
+						type: string,
+						password: string,
+					 },
+				  ]
+		- 401: Unauthorized
+		- 500: Internal Server Error
+		
+- GET /users/Barber
+	- Descripción: Obtener todos los barberos
+	- Responses:
+		- 200: Obtiene la lista de todos los barberos
+			Barbers: [
+					 {
+						name: string,
+						phone: string,
+						type: string,
+						password: string,
+					 },
+				  ]
+		- 401: Unauthorized
+		- 500: Internal Server Error
+
+- GET Services/Date/{DateId}
+	- Descripción: Consultar una cita
+	- Responses:
+		- 200: Obtiene la cita
+			Date:
+				{
+					customerId: string,
+					barbersId: string,
+					typeService: String,
+					ServiceId: string
+				},
+		- 401: Unauthorized
+		- 500: Internal Server Error
+		- Params:
+		- id: Id de la cita
+		
+- DELETE Services/Date/{DateId}
+	- Descripción: Eliminar una cita
+	- Responses:
+		- 204: cita eliminada 
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id de la cita
+
+Customer endpoints----------------------------------------------------------------------------------------------
+
+- POST /Services/Date
+	- Descripción: Crear una nueva cita
+	- Responses:
+		- 201: cita creada
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Body
+		{
+			customerId: string,
+			barbersId: string,
+			typeService: String,
+			ServiceId: string,
+			date: date
+		}
+
+- DELETE Services/Date/{DateId}
+	- Descripción: Eliminar una cita
+	- Responses:
+		- 204: cita eliminada 
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Params:
+		- id: Id de la cita
+
+- POST Products/Oder
+	- Descripción: Crear una nueva orden
+	- Responses:
+		- 201: orden creada
+		- 400: Bad request
+		- 401: Unauthorized
+		- 500: Internal Server Error
+	- Body
+		{
+			OrdenDate: string,
+			Product: string,
+			Status: string,
+		}
+
+- GET /Services
+	- Descripción: Obtener todos los servicios
+	- Responses:
+		- 200: Obtiene la lista de todos los servicios
+			Services: [
+							{
+								Details: string,
+								Price: double
+							},
+				  		]
+		- 401: Unauthorized
+		- 500: Internal Server Error
+
