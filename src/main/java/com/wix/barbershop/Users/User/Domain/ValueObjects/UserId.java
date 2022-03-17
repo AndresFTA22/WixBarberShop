@@ -1,4 +1,4 @@
-package com.wix.barbershop.User.Domain.ValueObjects;
+package com.wix.barbershop.Users.User.Domain.ValueObjects;
 
 import com.wix.barbershop.Shared.Domain.Aggregate.CustomUUID;
 
